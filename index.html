@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piscok Lezat - Jajanan Kriuk Lumer </title>
+    <style>
+        * {margin:0; padding:0; box-sizing:border-box; font-family:Arial, sans-serif;}
+        body {background:linear-gradient(180deg,#fff9e0,#ffe6b3); color:#333;}
+        /* Banner & Header */
+        .banner‑atas {width:100%; max‑width:900px; height:230px; object‑fit:cover; display:block; margin:0 auto; border‑radius:0 0 14px 14px; box‑shadow:0 4px 12px #ffb74d;}
+        header {background:linear-gradient(135deg,#ff9800,#ff5722); text‑align:center; padding:28px 20px; color:white; box‑shadow:0 3px 10px #ff9800;}
+        header h1 {font‑size:38px; text‑shadow:2px 2px 4px rgba(0,0,0,0.2); margin‑bottom:8px; animation:berkedip 2s infinite alternate;}
+        @keyframes berkedip {from{opacity:0.9;} to{opacity:1;}}
+        header p {font‑size:19px;}
+        .penawaran‑spesial {max‑width:900px; margin:25px auto; background:#ffeb3b; padding:16px; border‑radius:12px; text‑align:center; font‑weight:bold; color:#e65100; box‑shadow:0 3px 8px #ffc107; animation:goyang 1.8s infinite alternate;}
+        @keyframes goyang {0%{transform:rotate(-1deg);}100%{transform:rotate(1deg);}}
+        .hitungan‑promo {max‑width:900px; margin:15px auto; background:#ff5722; color:#fff; padding:12px; border‑radius:10px; text‑align:center; font‑weight:bold;}
+        .container {max‑width:900px; margin:30px auto; padding:0 20px;}
+        .judul‑bagian {text‑align:center; font‑size:28px; color:#d84315; margin:45px 0 25px;}
+        /* Produk */
+        .produk {background:#fff; padding:24px; border‑radius:14px; box‑shadow:0 4px 14px rgba(255,110,0,0.22); margin‑bottom:24px; text‑align:center; transition:transform 0.3s; position:relative;}
+        .produk:hover {transform:translateY(-7px);}
+        .badge‑laris {position:absolute; top:10px; right:10px; background:#e53935; color:#fff; padding:6px 10px; border‑radius:20px; font‑size:13px; font‑weight:bold;}
+        .gambar‑produk {width:230px; height:170px; object‑fit:cover; border‑radius:10px; margin‑bottom:14px; box‑shadow:0 3px 9px #ddd;}
+        .produk h2 {font‑size:23px; color:#e65100; margin‑bottom:9px;}
+        .rating {color:#f57f17; font‑size:18px; margin:9px 0;}
+        .stok‑info {font‑size:14px; color:#2e7d32; margin:6px 0; font‑weight:bold;}
+        .harga {font‑size:24px; color:#d84315; font‑weight:bold; margin:13px 0;}
+        .tombol‑keranjang {display:inline‑block; background‑color:#2e7d32; color:white; padding:12px 22px; border‑radius:30px; border:none; font‑weight:bold; cursor:pointer; margin:7px; box‑shadow:0 3px 7px #81c784; transition:0.25s;}
+        .tombol‑keranjang:hover {background‑color:#1b5e20; transform:scale(1.06);}
+        .tombol‑pesanwa {display:inline‑block; background‑color:#ff5722; color:white; padding:12px 22px; border‑radius:30px; text‑decoration:none; font‑weight:bold; margin:7px; box‑shadow:0 3px 7px #ffab91; transition:0.25s;}
+        .tombol‑pesanwa:hover {background‑color:#e64a19; transform:scale(1.06);}
+        .tombol‑checkoutwa {background‑color:#25d366; color:white; padding:10px; border‑radius:8px; border:none; font‑weight:bold; width:100%; margin‑top:10px; cursor:pointer;}
+        /* Keranjang */
+        .keranjang‑box {position:fixed; top:12px; right:12px; background:#fff; padding:16px; border‑radius:12px; box‑shadow:0 4px 14px #999; min‑width:235px; z‑index:999;}
+        .keranjang‑box h4 {color:#e65100; margin‑bottom:8px;}
+        /* Galeri, Alamat, Ulasan, FAQ */
+        .galeri‑foto {display:grid; grid‑template‑columns:1fr 1fr 1fr; gap:10px; margin:20px 0;}
+        .galeri‑foto img {width:100%; height:140px; object‑fit:cover; border‑radius:8px;}
+        .jam‑operasional {background:#fff; padding:20px; border‑radius:12px; text‑align:center; margin:25px 0; box‑shadow:0 2px 8px #ddd;}
+        .alamat‑produksi {background:#fff; padding:24px; border‑radius:14px; margin:32px 0; box‑shadow:0 3px 11px rgba(255,110,0,0.18); text‑align:center;}
+        .alamat‑produksi h3 {color:#e65100; margin‑bottom:12px;}
+        .ulasan {background:#fffef8; padding:19px; border‑radius:11px; margin:16px 0; box‑shadow:0 2px 8px #e0e0e0;}
+        .ulasan strong {color:#d84315; font‑size:17px;}
+        .faq‑kotak {background:#fff; border‑radius:12px; padding:20px; margin:20px 0; box‑shadow:0 2px 8px #ddd;}
+        .faq‑kotak h4 {color:#e65100; margin‑bottom:8px;}
+        .tentang {margin:40px 0; padding:26px; background:#fff; border‑radius:14px; box‑shadow:0 3px 11px rgba(255,110,0,0.18); text‑align:center;}
+        .tentang h3 {color:#e65100; margin‑bottom:12px;}
+        footer {background:linear‑gradient(135deg,#ff9800,#e65100); color:white; text‑align:center; padding:22px; margin‑top:60px;}
+    </style>
+</head>
+<body>
+    <div class="keranjang‑box">
+        <h4>🛒 Keranjang Belanja</h4>
+        <ul id="daftarKeranjang"></ul>
+        <p><strong>Total: Rp <span id="totalHarga">0</span></strong></p>
+        <button class="tombol‑checkoutwa" onclick="checkoutWA()">✅ Pesan Sekarang lewat WA</button>
+    </div>
+
+    <img class="banner‑atas" src="/storage/emulated/0/amattt.png" alt="Banner Piscok Lezat">
+
+    <header>
+        <h1>PISCOK LEZAT BANJARMASIN</h1>
+        <p>Kriuk di luar, lumer di dalam! Segar dibuat setiap hari!</p>
+    </header>
+
+    <div class="penawaran‑spesial">🔥 PROMO: Beli 10 buah GRATIS 1 buah! 🔥</div>
+    <div class="hitungan‑promo">⏰ Promo berlaku sampai: <span id="waktuPromo">23:59 WITA Hari Ini</span></div>
+
+    <div class="container">
+        <section class="jam‑operasional">
+            <h3>🕒 Jam Buka Produksi & Pesanan</h3>
+            <p>Setiap Hari : 10.00 – 21.00 WITA</p>
+            <p>Hari Libur Tetap Buka!</p>
+        </section>
+
+        <h2 class="judul‑bagian">✨ Daftar Varian Piscok ✨</h2>
+
+        <section class="produk">
+            <span class="badge‑laris">🔥 TERLARIS</span>
+            <img class="gambar‑produk" src="/storage/emulated/0/coklat.jpg" alt="Piscok Cokelat">
+            <h2>Piscok Cokelat</h2>
+            <p>Pisang goreng renyah dengan isian cokelat lumer, dibuat segar setiap hari.</p>
+            <div class="rating">⭐⭐⭐⭐⭐ (42 ulasan)</div>
+            <div class="stok‑info">✅ Stok Tersedia: 85 buah</div>
+            <div class="harga">Rp 3.000 / buah</div>
+            <button class="tombol‑keranjang" onclick="tambahKeranjang('Piscok Cokelat',3000)">+ Tambah ke Keranjang</button>
+            <a href="https://wa.me/628xxxxxxxxx" class="tombol‑pesanwa">Pesan Langsung WA</a>
+        </section>
+
+        <section class="produk">
+            <span class="badge‑laris">🔥 TERLARIS</span>
+            <img class="gambar‑produk" src="/storage/emulated/0/keju.jpg" alt="Piscok Keju">
+            <h2>Piscok Keju</h2>
+            <p>Perpaduan pisang manis dengan keju gurih yang meleleh.</p>
+            <div class="rating">⭐⭐⭐⭐½ (35 ulasan)</div>
+            <div class="stok‑info">✅ Stok Tersedia: 62 buah</div>
+            <div class="harga">Rp 3.500 / buah</div>
+            <button class="tombol‑keranjang" onclick="tambahKeranjang('Piscok Keju',3500)">+ Tambah ke Keranjang</button>
+            <a href="https://wa.me/628xxxxxxxxx" class="tombol‑pesanwa">Pesan Langsung WA</a>
+        </section>
+
+        <section class="produk">
+            <img class="gambar‑produk" src="/storage/emulated/0/meses.jpg" alt="Piscok Meses Cokelat">
+            <h2>Piscok Meses Cokelat</h2>
+            <p>Isian pisang manis dengan meses cokelat yang lumer di gigitan pertama.</p>
+            <div class="rating">⭐⭐⭐⭐ (28 ulasan)</div>
+            <div class="stok‑info">✅ Stok Tersedia: 48 buah</div>
+            <div class="harga">Rp 3.500 / buah</div>
+            <button class="tombol‑keranjang" onclick="tambahKeranjang('Piscok Meses Cokelat',3500)">+ Tambah ke Keranjang</button>
+            <a href="https://wa.me/628xxxxxxxxx" class="tombol‑pesanwa">Pesan Langsung WA</a>
+        </section>
+
+        <section class="produk">
+            <img class="gambar‑produk" src="/storage/emulated/0/ping.jpg" alt="Piscok Stroberi">
+            <h2>Piscok Stroberi</h2>
+            <p>Kombinasi pisang lembut dengan selai stroberi manis segar.</p>
+            <div class="rating">⭐⭐⭐⭐½ (22 ulasan)</div>
+            <div class="stok‑info">✅ Stok Tersedia: 36 buah</div>
+            <div class="harga">Rp 4.000 / buah</div>
+            <button class="tombol‑keranjang" onclick="tambahKeranjang('Piscok Stroberi',4000)">+ Tambah ke Keranjang</button>
+            <a href="https://wa.me/628xxxxxxxxx" class="tombol‑pesanwa">Pesan Langsung WA</a>
+        </section>
+
+        <h2 class="judul‑bagian">📸 Galeri Produk</h2>
+        <div class="galeri‑foto">
+            <img src="/storage/emulated/0/coklat.jpg" alt="Foto piscok">
+            <img src="/storage/emulated/0/keju.jpg" alt="Foto piscok">
+            <img src="/storage/emulated/0/meses.jpg" alt="Foto piscok">
+        </div>
+
+        <section class="tentang">
+            <h3>Tentang Kami</h3>
+            <p>Kami menjual jajanan piscok rumahan tanpa bahan pengawet, siap melayani pesanan harian dan acara kecil di wilayah Banjarmasin.</p>
+            <p>Bahan selalu dipilih segar, minyak diganti setiap hari agar rasa tetap lezat dan sehat.</p>
+        </section>
+
+        <section class="alamat‑produksi">
+            <h3>📍 Alamat Tempat Produksi</h3>
+            <p>Jl. Pendidikan No.12, Kelurahan Kertak Hanyar, Banjarmasin, Kalimantan Selatan</p>
+            <p>(Hanya untuk pengambilan pesanan langsung ya!)</p>
+        </section>
+
+        <h2 class="judul‑bagian">💬 Ulasan Pembeli</h2>
+        <div class="ulasan">
+            <strong>Rina</strong> ⭐⭐⭐⭐⭐
+            <p>Piscok‑nya renyah, cokelatnya benar‑benar lumer! Saya pasti pesan lagi besok!</p>
+        </div>
+        <div class="ulasan">
+            <strong>Andi</strong> ⭐⭐⭐⭐½
+            <p>Rasa keju enak sekali, pengiriman cepat sampai ke rumah saya.</p>
+        </div>
+        <div class="ulasan">
+            <strong>Lisa</strong> ⭐⭐⭐⭐⭐
+            <p>Cocok untuk camilan sore bersama keluarga, tidak ada rasa pengawet sama sekali.</p>
+        </div>
+        <div class="ulasan">
+            <strong>Bayu</strong> ⭐⭐⭐⭐⭐
+            <p>Promo beli 10 gratis 1 beneran dapat! Anak‑anak suka banget piscok‑nya!</p>
+        </div>
+        <div class="ulasan">
+            <strong>Siti</strong> ⭐⭐⭐⭐½
+            <p>Dipesan untuk arisan, semua teman suka rasanya. Akan pesan lagi!</p>
+        </div>
+
+        <h2 class="judul‑bagian">❓ Pertanyaan Umum (FAQ)</h2>
+        <div class="faq‑kotak">
+            <h4>Apakah bisa pesan untuk besok?</h4>
+            <p>Bisa! Silakan pesan hari ini untuk pesanan besok pagi/sore.</p>
+        </div>
+        <div class="faq‑kotak">
+            <h4>Apakah ada pengiriman ke luar Banjarmasin?</h4>
+            <p>Saat ini baru melayani wilayah sekitar kota Banjarmasin.</p>
+        </div>
+        <div class="faq‑kotak">
+            <h4>Apakah bisa pesan dalam jumlah banyak untuk acara?</h4>
+            <p>Bisa! Sebaiknya pesan minimal 2‑3 hari sebelum acara.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Piscok Lezat Banjarmasin</p>
+        <p>📞 Pemesanan WhatsApp: 08‑xxxx‑xxxx‑xx</p>
+        <p>💳 Pembayaran: Bayar di Tempat / Transfer Bank</p>
+    </footer>
+
+    <script>
+        let isiKeranjang = [];
+        let totalHarga = 0;
+        const daftarKeranjangEl = document.getElementById('daftarKeranjang');
+        const totalHargaEl = document.getElementById('totalHarga');
+        const nomorWA = "628xxxxxxxxx";
+
+        function tambahKeranjang(nama, harga){
+            isiKeranjang.push({nama, harga});
+            totalHarga += harga;
+            perbaruiKeranjang();
+            alert("✅ Berhasil ditambahkan ke keranjang!");
+        }
+        function perbaruiKeranjang(){
+            daftarKeranjangEl.innerHTML = '';
+            isiKeranjang.forEach((item, indeks)=>{
+                let li = document.createElement('li');
+                li.textContent = item.nama + " - Rp "+item.harga;
+                daftarKeranjangEl.appendChild(li);
+            });
+            totalHargaEl.textContent = totalHarga;
+        }
+        function checkoutWA(){
+            if(isiKeranjang.length === 0){
+                alert("⚠️ Keranjang masih kosong! Silakan tambah produk dulu.");
+                return;
+            }
+            let teksPesanan = "Halo, saya mau pesan:\n";
+            isiKeranjang.forEach(item => {
+                teksPesanan += "- " + item.nama + " Rp " + item.harga + "\n";
+            });
+            teksPesanan += "Total = Rp " + totalHarga + "\nMohon info ketersediaan & pengiriman.";
+            let linkWA = "https://wa.me/" + nomorWA + "?text=" + encodeURIComponent(teksPesanan);
+            window.open(linkWA, "_blank");
+        }
+    </script>
+</body>
+</html>
+
